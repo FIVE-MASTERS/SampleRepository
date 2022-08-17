@@ -1,0 +1,7 @@
+Integrantes y roles del grupo "FIVE MASTER"
+
+integrante1--> Scrum master.
+integrante2--> Analista
+integrante3 --> Administrador BD.
+Yeison David Hilarion Galindez--> Producto owner
+Integrante 5 --> Rol.
