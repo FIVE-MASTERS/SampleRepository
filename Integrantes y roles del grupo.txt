@@ -1,6 +1,6 @@
 Integrantes y roles del grupo "FIVE MASTER"
 
-integrante1--> Scrum master.
+Victor Ferney Herandez Aya--> Scrum master.
 integrante2--> Analista
 integrante3 --> Administrador BD.
 Yeison David Hilarion Galindez--> Producto owner
