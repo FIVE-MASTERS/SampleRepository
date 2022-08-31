@@ -11,7 +11,9 @@ import lombok.Setter;
 
 public class MovimientoDeDinero {
     private Double monto;
-    private String conceptoMovimientoDinero,rolEmpleado;
+    private String conceptoMovimientoDinero;
+    private Empleado empleado;
+
 
 
 }
