@@ -35,8 +35,9 @@ public class EmpresaServiceImpl implements IEmpresaService {
     }
 
     @Override
-    public void deleted(long id) throws Exception {
+    public Empresa deleted(long id) throws Exception {
         repo.deleteById(id);
 
+        return null;
     }
 }

@@ -10,6 +10,6 @@ public interface IEmpresaService {
     Empresa update(Empresa empresa) throws Exception;
     List<Empresa> readAll() throws Exception;
     Empresa readById( long id) throws Exception;
-    void deleted (long id)throws Exception;
+    Empresa deleted (long id)throws Exception;
 
 }

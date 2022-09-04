@@ -17,32 +17,28 @@ public class EmpleadoController {
     private IEmpleadoService service;
 
 
-    @GetMapping
+    @GetMapping("/user")
     public List<Empleado> readAll() throws Exception {
         return service.readAll();
     }
 
-    @PostMapping
+    @PostMapping("/user")
     public Empleado create(@RequestBody Empleado empleado) throws Exception {
         return service.create(empleado);
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("user/{id}")
     public Empleado readById(@PathVariable("id") long id) throws Exception {
         return service.readById(id);
     }
 
-    @PatchMapping
+    @PutMapping("user/{id}")
     public Empleado update(@RequestBody Empleado empleado) throws Exception {
         return service.update(empleado);
     }
-    @PutMapping
-    public Empleado create(idEmpleado idempleado) throws Exception {
-        return service.create(idempleado);
-    }
 
-    @DeleteMapping
+    @DeleteMapping("user/{id}")
     public Empleado delete(@PathVariable("id") long id) throws Exception {
         return service.deleted(id);
 
