@@ -15,12 +15,12 @@ public class MovimientoDeDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idMovimientoDeDinero;
-    @Column
+    @Column (name = "Monto")
     private Double monto;
     @Column
     private String conceptoMovimientoDinero;
     @ManyToOne
-    @JoinColumn(name = "empleado_id_empleado")
+    @JoinColumn(name = "Rol")
     private Empleado empleado;
 
 

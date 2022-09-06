@@ -19,9 +19,11 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEmpleado;
+    @Column(name = "nombre")
+    private String nombreEmpleado;
     @Column
-    private String nombreEmpleado, correo;
-    @OneToOne
+    private String correo;
+    @ManyToOne
     @JoinColumn
     private Empresa empresa;
     @Column

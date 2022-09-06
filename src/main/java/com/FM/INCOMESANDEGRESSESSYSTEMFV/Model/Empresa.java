@@ -1,10 +1,8 @@
 package com.FM.INCOMESANDEGRESSESSYSTEMFV.Model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
-
 
 @Data
 
