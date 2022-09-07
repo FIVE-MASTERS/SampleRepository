@@ -4,9 +4,12 @@ import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.Empresa;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Repository.IEmpresaRepository;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.IEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
+@Service
 public class EmpresaServiceImpl implements IEmpresaService {
 
     @Autowired
@@ -30,12 +33,12 @@ public class EmpresaServiceImpl implements IEmpresaService {
     }
 
     @Override
-    public Empresa readById(long id) throws Exception {
+    public Empresa readById(Long id) throws Exception {
         return repo.findById(id).orElse(null);
     }
 
     @Override
-    public Empresa deleted(long id) throws Exception {
+    public Empresa deleted(Long id) throws Exception {
         repo.deleteById(id);
 
         return null;

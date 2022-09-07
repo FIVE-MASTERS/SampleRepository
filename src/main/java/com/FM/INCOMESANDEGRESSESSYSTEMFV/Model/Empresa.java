@@ -1,9 +1,12 @@
 package com.FM.INCOMESANDEGRESSESSYSTEMFV.Model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 
 @Entity
@@ -13,12 +16,16 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEmpresa;
-    @Column
+
+    @Column(nullable = false)
     private String nombre;
-    @Column
+
+    @Column(nullable = false)
     private String direccion;
-    @Column
+
+    @Column(nullable = false)
     private String telefono;
-    @Column
+
+    @Column(nullable = false)
     private String nit;
 }

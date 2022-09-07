@@ -8,6 +8,6 @@ public interface IMovimientoDeDineroService {
     MovimientoDeDinero create(MovimientoDeDinero movimientodedinero) throws Exception;
     MovimientoDeDinero update(MovimientoDeDinero movimientodedinero) throws Exception;
     List<MovimientoDeDinero> readAll() throws Exception;
-    MovimientoDeDinero readById( long id) throws Exception;
-    MovimientoDeDinero deleted (long id)throws Exception;
+    MovimientoDeDinero readById( Long id) throws Exception;
+    MovimientoDeDinero deleted (Long id)throws Exception;
 }

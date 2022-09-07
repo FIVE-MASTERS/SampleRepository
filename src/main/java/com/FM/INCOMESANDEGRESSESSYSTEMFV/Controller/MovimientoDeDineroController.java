@@ -15,29 +15,29 @@ public class MovimientoDeDineroController {
 
     @Autowired
     private IMovimientoDeDineroService service;
-    @GetMapping("/enterprise/{id}/movements")
+    @GetMapping
     public List<MovimientoDeDinero> readAll() throws Exception {
         return service.readAll();
     }
 
-    @PostMapping("/enterprise/{id}/movements")
+    @PostMapping
     public MovimientoDeDinero create(@RequestBody MovimientoDeDinero movimientodinero) throws Exception {
         return service.create(movimientodinero);
     }
 
 
-    @GetMapping("/enterprise/{id}/movements")
-    public MovimientoDeDinero readById(@PathVariable("id") long id) throws Exception {
+    @GetMapping
+    public MovimientoDeDinero readById(@PathVariable("id") Long id) throws Exception {
         return service.readById(id);
     }
 
-    @PutMapping("/enterprise/{id}/movements")
+    @PutMapping
     public MovimientoDeDinero update(@RequestBody MovimientoDeDinero movimientodinero) throws Exception {
         return service.update(movimientodinero);
     }
 
-    @DeleteMapping("/enterprise/{id}/movements")
-    public MovimientoDeDinero delete(@PathVariable("id") long id) throws Exception {
+    @DeleteMapping
+    public MovimientoDeDinero delete(@PathVariable("id") Long id) throws Exception {
         return service.deleted(id);
 
     }

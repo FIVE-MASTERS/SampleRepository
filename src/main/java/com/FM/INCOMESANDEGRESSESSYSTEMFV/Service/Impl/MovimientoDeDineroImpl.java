@@ -4,9 +4,11 @@ import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.MovimientoDeDinero;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Repository.IMovimientoDeDineroRepository;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.IMovimientoDeDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MovimientoDeDineroImpl implements IMovimientoDeDineroService {
 
     @Autowired
@@ -29,12 +31,12 @@ public class MovimientoDeDineroImpl implements IMovimientoDeDineroService {
     }
 
     @Override
-    public MovimientoDeDinero readById(long id) throws Exception {
+    public MovimientoDeDinero readById(Long id) throws Exception {
         return repo.findById(id).orElse(null);
     }
 
     @Override
-    public MovimientoDeDinero deleted(long id) throws Exception {
+    public MovimientoDeDinero deleted(Long id) throws Exception {
        repo.deleteById(id);
        return null;
     }

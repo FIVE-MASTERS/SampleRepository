@@ -27,7 +27,7 @@ public class EmpresaController {
 
 
     @GetMapping("/enterprise/{id}")
-    public Empresa readById(@PathVariable("id") long id) throws Exception {
+    public Empresa readById(@PathVariable("id") Long id) throws Exception {
         return service.readById(id);
     }
 
@@ -37,7 +37,7 @@ public class EmpresaController {
     }
 
     @DeleteMapping("/enterprise/{id}")
-    public Empresa delete(@PathVariable("id") long id) throws Exception {
+    public Empresa delete(@PathVariable("id") Long id) throws Exception {
         return service.deleted(id);
 
     }

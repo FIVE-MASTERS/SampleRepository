@@ -1,16 +1,17 @@
 
 package com.FM.INCOMESANDEGRESSESSYSTEMFV.Model;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 
 enum Rol_Enum { ADMINISTRADOR,OPERATIVO
 }
-
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Table(name = "Empleados")
 @Entity
@@ -19,14 +20,20 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEmpleado;
-    @Column(name = "nombre")
+
+    @Column(name = "nombre",nullable = false)
     private String nombreEmpleado;
-    @Column
+
+    @Column(nullable = false)
     private String correo;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "nombre_empresa",nullable = false )
     private Empresa empresa;
-    @Column
+
+    @Column(nullable = false)
     private Rol_Enum rol;
+
+
 
 }
