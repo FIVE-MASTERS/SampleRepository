@@ -37,10 +37,11 @@ public class EmpleadoController {
     public Empleado update(@RequestBody Empleado empleado) throws Exception {
         return service.update(empleado);
     }
-    @PutMapping
-    public Empleado create(idEmpleado idempleado) throws Exception {
-        return service.create(idempleado);
-    }
+    
+    // @PutMapping
+    // public Empleado create(idEmpleado idempleado) throws Exception {
+    //     return service.create(idempleado);
+    // }
 
     @DeleteMapping
     public Empleado delete(@PathVariable("id") long id) throws Exception {
