@@ -1,6 +1,5 @@
 package com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.Impl;
 
-
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.Empleado;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Repository.IEmpleadoRepository;
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.IEmpleadoService;
@@ -32,12 +31,12 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
 
     @Override
-    public Empleado readById(long id) throws Exception {
+    public Empleado readById(Long id) throws Exception {
         return repo.findById(id).orElse(null);
     }
 
     @Override
-    public Empleado deleted(long id) throws Exception {
+    public Empleado deleted(Long id) throws Exception {
         repo.deleteById(id);
 
         return null;
