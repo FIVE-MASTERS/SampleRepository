@@ -1,7 +1,0 @@
-Integrantes y roles del grupo "FIVE MASTER"
-
-Victor Ferney Herandez Aya--> Scrum master.
-David Felipe Ruiz Rodriguez--> Analista
-Millerlay Rincon --> Administrador BD.
-Yeison David Hilarion Galindez--> Producto owner
-Anderson Cortes --> Desarrollador
