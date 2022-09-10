@@ -1,7 +1,7 @@
-package com.FM.INCOMESANDEGRESSESSYSTEMFV.Repository;
+package com.FM.INCOMESANDEGRESSESSYSTEMFV.repository;
 
 
-import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.Empresa;
+import com.FM.INCOMESANDEGRESSESSYSTEMFV.model.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
