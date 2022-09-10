@@ -1,44 +1,38 @@
-package com.FM.INCOMESANDEGRESSESSYSTEMFV.Controller;
+package com.FM.INCOMESANDEGRESSESSYSTEMFV.controller;
 
-
-import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.Empresa;
-import com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.IEmpresaService;
+import com.FM.INCOMESANDEGRESSESSYSTEMFV.model.Empresa;
+import com.FM.INCOMESANDEGRESSESSYSTEMFV.service.IEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/enterprise")
 public class EmpresaController {
     @Autowired
-    private IEmpresaService service;
+    private IEmpresaService empresaService;
 
-
-    @GetMapping("/enterprise")
-    public List<Empresa> readAll() throws Exception {
-        return service.readAll();
-    }
 
     @PostMapping("/enterprise")
     public Empresa create(@RequestBody Empresa empresa) throws Exception {
-        return service.create(empresa);
+        return empresaService.create(empresa);
     }
-
+    @GetMapping("/enterprise")
+    public List<Empresa> readAll() throws Exception {
+     return empresaService.readAll();}
 
     @GetMapping("/enterprise/{id}")
-    public Empresa readById(@PathVariable("id") Long id) throws Exception {
-        return service.readById(id);
+    public Empresa readById(@PathVariable("id") long id) throws Exception {
+        return empresaService.readById(id);
     }
 
     @PutMapping("/enterprise/{id}")
     public Empresa update(@RequestBody Empresa empresa) throws Exception {
-        return service.update(empresa);
+        return empresaService.update(empresa);
     }
 
     @DeleteMapping("/enterprise/{id}")
-    public Empresa delete(@PathVariable("id") Long id) throws Exception {
-        return service.deleted(id);
+    public void delete(@PathVariable("id") long id) throws Exception {
+        empresaService.delete(id);
 
     }
 }
