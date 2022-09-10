@@ -1,48 +1,42 @@
-package com.FM.INCOMESANDEGRESSESSYSTEMFV.Controller;
+package com.FM.INCOMESANDEGRESSESSYSTEMFV.controller;
 
 
 
-import com.FM.INCOMESANDEGRESSESSYSTEMFV.Model.MovimientoDeDinero;
-import com.FM.INCOMESANDEGRESSESSYSTEMFV.Service.IMovimientoDeDineroService;
+import com.FM.INCOMESANDEGRESSESSYSTEMFV.model.MovimientoDinero;
+import com.FM.INCOMESANDEGRESSESSYSTEMFV.service.IMovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/enterprise/{id}/movements")
-public class MovimientoDeDineroController {
+public class MovimientoDineroController {
 
     @Autowired
-    private IMovimientoDeDineroService service;
-    @GetMapping
-    public List<MovimientoDeDinero> readAll() throws Exception {
-        return service.readAll();
+    private IMovimientoDineroService movimientoDineroService;
+    @GetMapping("/movements")
+    public List<MovimientoDinero> readAll() throws Exception {
+        return movimientoDineroService.readAll();
+    }
+    @PostMapping("/movements")
+    public MovimientoDinero create(@RequestBody MovimientoDinero movimientodinero) throws Exception {
+        return movimientoDineroService.create(movimientodinero);
+    }
+    @GetMapping("/movements/{id}")
+    public MovimientoDinero readById(@PathVariable("id") long id) throws Exception {
+        return movimientoDineroService.readById(id);
     }
 
-    @PostMapping
-    public MovimientoDeDinero create(@RequestBody MovimientoDeDinero movimientodinero) throws Exception {
-        return service.create(movimientodinero);
+    @PutMapping("/movements/{id}")
+    public MovimientoDinero update(@RequestBody MovimientoDinero movimientodinero) throws Exception {
+        return movimientoDineroService.update(movimientodinero);
     }
 
-
-    @GetMapping
-    public MovimientoDeDinero readById(@PathVariable("id") Long id) throws Exception {
-        return service.readById(id);
-    }
-
-    @PutMapping
-    public MovimientoDeDinero update(@RequestBody MovimientoDeDinero movimientodinero) throws Exception {
-        return service.update(movimientodinero);
-    }
-
-    @DeleteMapping
-    public MovimientoDeDinero delete(@PathVariable("id") Long id) throws Exception {
-        return service.deleted(id);
+    @DeleteMapping("/movements/{id}")
+    public void delete(@PathVariable("id") long id) throws Exception {
+        movimientoDineroService.delete(id);
 
     }
-
-
 
 
 }
