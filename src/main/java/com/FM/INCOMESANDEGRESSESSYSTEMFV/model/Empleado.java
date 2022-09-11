@@ -22,9 +22,9 @@ public class Empleado {
     @Column(name = "correo_empleado")
     private String correo;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "empresa_id")
-    private Empresa empresaEmpleado;
+    //(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "empleado")
+    private Perfil perfil;
 
 
     @Enumerated(EnumType.STRING)
