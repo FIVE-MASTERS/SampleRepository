@@ -25,7 +25,10 @@ public class Empleado {
     //(fetch = FetchType.LAZY)
     @OneToOne(mappedBy = "empleado")
     private Perfil perfil;
-
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empresa_empleado_id_empresa")
+    private Empresa empresaEmpleado;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "rol")
