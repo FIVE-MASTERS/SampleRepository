@@ -20,10 +20,10 @@ public class Perfil {
     @Column(nullable = false)
     private String telefono;
 
-     @OneToOne
+     @OneToOne(cascade = CascadeType.ALL)
      @JoinColumn(name = "empleado_id")
      private Empleado empleado;
-
+    
     @Column(name= "fecha_creacion")
     private LocalDate createAt;
 
