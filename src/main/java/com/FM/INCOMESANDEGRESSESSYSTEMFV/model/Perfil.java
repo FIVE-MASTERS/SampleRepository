@@ -22,7 +22,7 @@ public class Perfil {
     @Column(nullable = false)
     private String telefono;
 
-     @OneToOne(cascade = CascadeType.ALL)
+     @OneToOne//(cascade = CascadeType.ALL)
      @JoinColumn(name = "empleado_id")
      private Empleado empleado;
     
