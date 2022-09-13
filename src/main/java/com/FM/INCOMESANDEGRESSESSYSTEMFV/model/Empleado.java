@@ -6,7 +6,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Table(name = "Empleados")
 @Entity
