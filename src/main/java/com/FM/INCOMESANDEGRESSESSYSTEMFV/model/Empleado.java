@@ -12,41 +12,37 @@ import java.util.List;
 @Entity
 public class Empleado {
 
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEmpleado;
+    @Column(name = "id_empleado")
+    private Long idEmpleado;
 
-    @Column(name = "nombre")
+    @Column(name = "Nombre")
     private String nombreEmpleado;
 
-    @Column(name = "correo_empleado")
+    @Column(name = "Correo_Empleado")
     private String correo;
 
-    //(fetch = FetchType.LAZY)
-    @OneToOne(mappedBy = "empleado")
-    private Perfil perfil;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empresa_empleado_id_empresa")
-    private Empresa empresaEmpleado;
-
     @Enumerated(EnumType.STRING)
-    @Column(name = "rol")
+    @Column(name = "Rol")
     private Enum_Rol rol;
 
+    //@OneToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "perfil_id")
+    //private Perfil perfil;
 
-    @OneToOne//(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_perfil")
-    private Perfil perfil;
-
-    @Column(name= "fecha_creacion")
+    //"2022-09-13T01:53:34.599Z"
+    @Column(name= "Fecha_Creacion")
     private LocalDate createAt;
 
-    @Column(name= "fecha_actualizacion")
+    @Column(name= "Fecha_Actualizacion")
     private LocalDate updateAt;
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresaEmpleado;
 
     @OneToMany(mappedBy = "empleado")
-    private List<MovimientoDinero> movimientosdeDineros;
+    private List<MovimientoDinero> movimientosDeDineros;
 
 
 
