@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "perfiles")
