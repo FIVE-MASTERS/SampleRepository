@@ -6,15 +6,16 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-
 @Entity
 @Table(name = "Movimientos_de_Dinero")
 public class MovimientoDinero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idMovimientoDeDinero;
+    private Long idMovimientoDeDinero;
 
     @Column (name = "Monto",nullable = false)
     private Double monto;
@@ -22,7 +23,7 @@ public class MovimientoDinero {
     @Column(name = "concepto_transaccion")
     private String conceptoMovimientoDinero;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne //(cascade = CascadeType.ALL)
     @JoinColumn(name =  "id_empleado")
     private Empleado empleado;
 
