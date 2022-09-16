@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Empresas - Ciclo3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet"  type="text/css" href="css/uno.css">
+    <script src="js/dos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <style>
+     .container {
+       width: 1000px;
+      }
+    </style>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a id="menu-toggle" href="#" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="navbar-brand" href="home.xhtml">
+                logo
+            </a>
+        </div>
+        <div id="sidebar-wrapper" class="sidebar-toggle">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#item1">Item 1</a>
+                </li>
+                <li>
+                    <a href="#item2">Item 2</a>
+                </li>
+                <li>
+                    <a href="#item3">Item 3</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1> Lista de Empresas</h1>
+
+    <br><table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Telefono</th>
+        <th>NIT</th>
+        <th>Empleados</th>
+        <th>Movimientos</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+
+    </tr>
+
+
+    <tr th:each="empresa : ${enterprises}">
+        <td th:text="${empresa.idEmpresa}"></td>
+        <td th:text="${empresa.nombre}"></td>
+        <td th:text="${empresa.direccion}"></td>
+        <td th:text="${empresa.telefono}"></td>
+        <td th:text="${empresa.nit}"></td>
+    <!---    <td><button type="button" class="btn btn-info"><a th:href="@{/Empresa/{id}/Empleados (id=${empresa.id})}">Ver</a></button></td>
+        <td><button type="button" class="btn btn-primary" ><a th:href="@{/Empresa/{id}/Movimientos (id=${empresa.id})}">Ver</a></button></td>
+        <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarEmpresa/{id}(id=${empresa.id})}">Editar</a></button></td>
+        <td><button type="button" class="btn btn-danger" ><a th:href="@{/EliminarEmpresa/{id}(id=${empresa.id})}">Eliminar</a></button></td>
+    -->
+    </tr>
+</table>
+
+
+    <button type="button" class="btn btn-info"><a th:href="@{/AgregarEmpresa}">Agregar Nueva Empresa</a></button>
+    <br><br>
+    <button type="button" class="btn btn-primary"><a th:href="@{/VerEmpleados}">Ver lista de Empleados</a></button>
+
+</div>
+
+</body>
+</html>

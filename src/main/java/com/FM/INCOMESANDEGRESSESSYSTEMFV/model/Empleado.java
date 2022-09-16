@@ -1,7 +1,10 @@
 package com.FM.INCOMESANDEGRESSESSYSTEMFV.model;
 
 import com.FM.INCOMESANDEGRESSESSYSTEMFV.enums.Enum_Rol;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
