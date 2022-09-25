@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>FM-Lista de Empresas</title>
+    <title>FM-Lista de Movimientos de Dinero</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16"  href="images/favicon-16x16.png">
@@ -65,77 +65,83 @@
 
 <div class="w3-container" style="width: 1653px; "  >
 
-    <h1 class="text-center"  style="color:#578a8f;font-family:arial;font-size: 25px;"> Lista de Empresas</h1>
+    <h1 class="text-center"  style="color:#578a8f;font-family:arial;font-size: 25px;"> Lista de Movimientos de Dinero</h1>
     <br><table class="w3-table-all w3-centered"  style="margin: 0 auto;     width: 1076px;">
     <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">Nombre</th>
-        <th class="text-center">Dirección</th>
-        <th class="text-center">Telefono</th>
-        <th class="text-center">NIT</th>
-        <th class="text-center">Empleados</th>
-        <th class="text-center">Movimientos</th>
+        <th class="text-center">Monto</th>
+        <th class="text-center">Concepto</th>
+        <th class="text-center">Empleado Responsable</th>
         <th class="text-center">Editar</th>
         <th class="text-center">Eliminar</th>
-
-
 
     </tr>
 
 
-    <tr th:each="empresa : ${emplist}">
-        <td th:text="${empresa.idEmpresa}" class="text-center"></td>
-        <td th:text="${empresa.nombre}" class="text-center"></td>
-        <td th:text="${empresa.direccion}" class="text-center"></td>
-        <td th:text="${empresa.telefono}" class="text-center"></td>
-        <td th:text="${empresa.nit}" class="text-center"></td>
-        <td><button type="button" class="btn btn-info"><a th:href="@{/Empresa/{id}/Empleados (id=${empresa.idEmpresa})}">Ver</a></button></td>
-       <td><button type="button" class="btn btn-primary"><a th:href="@{/Empresa/{id}/Movimientos (id=${empresa.idEmpresa})}">Ver</a></button></td>
-               <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarEmpresa/{id} (id=${empresa.idEmpresa})}">Editar</a></button></td>
-               <td><button type="button" class="btn btn-danger"><a th:href="@{/EliminarEmpresa/{id} (id=${empresa.idEmpresa})}">Eliminar</a></button></td>
-           </tr>
-       </table>
+    <tr th:each="movimiento : ${movlist}">
+        <td th:text="${movimiento.idMovimientoDinero}" class="text-center"></td>
+       <td th:text="${movimiento.monto}" class="text-center"></td>
+         <td th:text="${movimiento.conceptoMovimientoDinero}" class="text-center"></td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='1'}">Papeleria </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='2'}">Servicios Publicos/Privados </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='3'}">Operativos </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='4'}">Caja menor </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='5'}">Tributario </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='6'}">Mobiliario </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='7'}">Maquinaria y Equipo </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='8'}">Nomina </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='9'}">Varios </td>
+         <td th:if="${movimiento.conceptoMovimientoDinero=='10'}">Mensajeria </td>
 
-       <br>
+         <td th:text="${movimiento.empleado.nombreEmpleado}" class="text-center"></td>
 
-           <button type="button" class="btn btn-info" style="left: 1168px;position: absolute;"><a th:href="@{/AgregarEmpresa}">Agregar Nueva Empresa</a></button>
-           <button type="button" class="btn btn-primary" style="left: 288px;position: absolute;"><a th:href="@{/VerEmpleados}">Ver lista de Empleados</a></button>
+        <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarMovimiento/{id} (id=${movimiento.idMovimientoDinero})}">Editar</a></button></td>
+         <td><button type="button" class="btn btn-danger"><a th:href="@{/EliminarMovimiento/{id} (id=${movimiento.idMovimientoDinero})}">Eliminar</a></button></td>
+     </tr>
+ </table>
 
-       </div>
+     <br><br>
 
-       <script th:inline="javascript">
-           window.onload=function(){
+     <button type="button" class="btn btn-info" style="left: 1068px;position: absolute;"><a th:href="@{/AgregarMovimiento}">Agregar Nuevo Movimientos  </a></button>
+     <br><br>
+     <button type="button" class="btn btn-primary" style="left: 288px;position: absolute;"><a th:href="@{/VerEmpresas}">Ver lista de Empresas</a></button>
+     <br><br>
+     <button type="button" class="btn btn-primary" style="left: 288px;position: absolute;"><a th:href="@{/VerEmpleados}">Ver lista de Empleados</a></button>
+ </div>
 
-               var msg= [[${mensaje}]];
-               if (msg == "saveOK"){
-                   Command : toastr["success"]("Empresa creada con éxito!")
-                   }
-               else if (msg == "saveNOOK"){
-                   Command : toastr["error"]("Empresa no actualizada!")
-               }
-               else if (msg == "updateOK"){
-                   Command : toastr["success"]("Empresa actualizada con éxito!")
-               }
-               else if (msg == "updateError"){
-                   Command : toastr["error"]("La Empresa no se actualizó con éxito!")
-               }
-               else if (msg == "deleteOK"){
-                   Command : toastr["success"]("Empresa eliminada con éxito!")
-               }
-               else if (msg == "deleteError"){
-                   Command : toastr["error"]("Empresa no ha sido eliminada!")
-               }
-               toastr.options={
-                   "positionClass": "toast-bottom-left",
-                   "showDuration":"200",
-                   "showMethod":"fadeIn",
-                   "hideMethod":"fadeOut",
-               }
+ <script th:inline="javascript">
+     window.onload=function(){
+
+         var msg= [[${mensaje}]];
+         if (msg == "saveOK"){
+             Command : toastr["success"]("Movimiento registrado con éxito!")
+             }
+         else if (msg == "saveNOOK"){
+             Command : toastr["error"]("Operación sin éxito!")
+         }
+         else if (msg == "updateOK"){
+             Command : toastr["success"]("Datos del Movimiento actualizados con éxito!")
+         }
+         else if (msg == "updateError"){
+             Command : toastr["error"]("Datos del Movimiento no se actualizaron con éxito!")
+         }
+         else if (msg == "deleteOK"){
+             Command : toastr["success"]("Movimiento eliminado con éxito!")
+         }
+         else if (msg == "deleteError"){
+             Command : toastr["error"]("Movimiento no pudo ser eliminado!")
+         }
+         toastr.options={
+             "positionClass": "toast-bottom-left",
+             "showDuration":"200",
+             "showMethod":"fadeIn",
+             "hideMethod":"fadeOut",
+         }
 
 
-           }
+     }
 
-       </script>
+ </script>
 
-       </body>
-       </html>
+ </body>
+ </html>
