@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FM- Actualizar Empleado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16"  href="images/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet"  type="text/css" href="css/Styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="js/JsCode.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <style>
+    a{
+    color:white;
+    }
+    a:hover {
+    color: black;
+    text-decoration:none;
+    }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation" style="background-color:#d6dbc3;">
+    <div class="container" >
+        <div class="navbar-header" style="background-color:#d6dbc3; font-family: Arial; font-size: 10px;">
+            <a id="menu-toggle" href="#" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="navbar-brand" style="margin-left: -130px;color:#930b0b; back  font-family:courier,arial,helvética;width:900px;  " href="#">
+                FIVE MASTERS SYSTEMS - INCOMES AND EGRESSES APP
+            </a>
+        </div>
+        <div id="sidebar-wrapper"  class="sidebar-toggle"  >
+            <ul class="sidebar-nav">
+                <li style="position: absolute;left: 30px;top: 50px;">
+                    <img src="images/FIVE MASTERS_free-file.png" width="120" height="120">
+                </li>
+                <li style="position: absolute;width: 138px;height: 18px;left: 42px;top: 280px;font-family: 'Inter';font-style: normal;font-weight: 600;font-size: 10px;line-height: 18px;color: #FFFFFF;">
+                    <button class="button1 btn btn-primary btn-lg" ><a th:href="@{/VerMovimientos}">Ingresos y Egresos</a></button>
+                </li>
+                <li style="position: absolute;width: 138px;height: 18px;left: 42px;top: 500px;font-family: 'Inter';font-style: normal;font-weight: 600;font-size: 10px;line-height: 18px;color: #FFFFFF;">
+                    <button class="button2 btn btn-primary btn-lg" ><a th:href="@{/VerEmpleados}">Usuarios</a></button>
+                </li>
+                <li style="position: absolute;width: 138px;height: 18px;left: 42px;top: 500px;font-family: 'Inter';font-style: normal;font-weight: 600;font-size: 10px;line-height: 18px;color: #FFFFFF;">
+                    <button class="button3 btn btn-primary btn-lg" ><a th:href="@{/VerEmpresas}">Empresas</a></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+    <form id="contact" th:action="@{/ActualizarEmpleado}" th:object="${empl}" method="post">
+        <h3 style="color:#578a8f;font-family:Arial;font-size: 25px;" class="text-center">Edite el empleado</h3>
+        <br>
+        <h4 style="font-family:Arial;font-size: 15px;">Diligencie los siguientes campos para editar un empleado en el sistema:</h4>
+        <fieldset>
+            <input placeholder="ID empleado" type="text"  th:field="*{idEmpleado}" class="form-control" id="idEmpleado" required="required" readonly>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Nombre del empleado" type="text"  th:field="*{nombreEmpleado}" class="form-control" id="nombreEmpleado" required="required">
+        </fieldset>
+        <fieldset>
+            <input placeholder="Correo electronico del empleado" type="email" th:field="*{correo}" class="form-control" id="correo" required="required">
+        </fieldset>
+
+        <fieldset>
+
+            <select placeholder="Rol del Empleado" th:field="*{rol}" class="form-control" id="rol" required="required">
+             <!--   <option value="">rol del empleado</option> -->
+                <option th:value=1>ADMINISTRADOR </option>
+                <option th:value=2>OPERATIVO </option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+
+            <select  th:field="*{empresa}" class="form-control" id="empresa" required="required">
+                <option value="">Empresa a la que pertenece</option>
+                <option th:each="empresa: ${emprelist}" th:text="${empresa.nombre}" th:value="${empresa.idEmpresa}"></option>
+            </select>
+
+        </fieldset>
+
+
+        <fieldset>
+            <button  type="submit" >Actualizar Empleado</button>
+        </fieldset>
+    </form>
+
+</div>
+<br>
+<a href="javascript: history.go(-1)" class="btn btn-info" role="button" style="position: absolute;margin-bottom: 0;left: 595px;top: 603px;">Atrás</a>
+</body>
+</html>
