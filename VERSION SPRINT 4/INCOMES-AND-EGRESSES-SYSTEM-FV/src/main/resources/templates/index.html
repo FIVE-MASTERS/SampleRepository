@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <title>FM-Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="16x16"  href="images/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet"  type="text/css" href="css/Styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="js/JsCode.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <style>
+    a{
+    color:white;
+    }
+    a:hover {
+    color: white;
+    text-decoration:none;
+    }
+    </style>
+</head>
+<body >
+
+<nav class="navbar navbar-default" role="navigation" style="background-color:#d6dbc3;">
+  <div class="container" >
+    <div class="navbar-header" style="background-color:#d6dbc3; font-family: Arial; font-size: 10px;">
+      <a id="menu-toggle" href="#" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="navbar-brand" style="margin-left: -123px;color:#930b0b; back  font-family:courier,arial,helvética;width:900px;" href="#">
+        FIVE MASTERS SYSTEMS - INCOMES AND EGRESSES APP
+      </a>
+    </div>
+    <div id="sidebar-wrapper"  class="sidebar-toggle"  >
+      <ul class="sidebar-nav">
+        <li style="position: absolute;left: 30px;top: 50px;">
+          <img src="images/FIVE MASTERS_free-file.png" width="120" height="120">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <main>
+          <div class ="px-4, py-5, my-5 text-center">
+            <img src="img/transaccion.png" class="d-block mx-auto mb-4" width="120" height="120" />
+            <h1 class="display-5 fw-bold"> Sistema de Gestion de Movimientos de Dinero  </h1>
+            <p class="lead mb-2">Bienvenido a la aplicacion de movimientos de dinero para tu empresa,
+              a continuacion puedes ingresar dando click en el botton para asi poder registrarte. </p>
+            <br>
+            <div sec:authorize="!isAuthenticated()">
+              <a th:href="@{/oauth2/authorization/auth0}" class = "btn btn-primary btn-lg px-4 gap-3">Inicia Secion</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+              <a th:href="@{/VerEmpresas}" class = "btn btn-primary btn-lg px-4 gap-3">Ingreso Aplicacion</a>
+            </div>
+          </div>
+        </main>
+
+</body>
+
+</html>
