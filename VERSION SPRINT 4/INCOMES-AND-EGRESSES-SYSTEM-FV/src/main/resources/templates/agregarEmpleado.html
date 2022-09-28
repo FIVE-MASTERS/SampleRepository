@@ -4,20 +4,21 @@
     <title>FM- Agregar Empleado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" sizes="16x16"  href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16"  href="/images/favicon-16x16.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet"  type="text/css" href="css/Styles.css">
+    <link rel="stylesheet"  type="text/css" href="/css/Styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="js/JsCode.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="/js/JsCode.js"></script>
+
     <style>
     a{
     color:white;
@@ -76,16 +77,16 @@
 
         <fieldset>
 
-            <select placeholder="Rol del Empleado" th:field="*{rol}" class="form-control" id="rol" required="required">
+            <select placeholder="Rol del Empleado" th:field="*{rol}" class="form-control" id="rol" required="required" style="font: 400 12px/16px sans-serif, Helvetica, Arial, sans-serif;">
              <!--   <option value="">rol del empleado</option> -->
-                <option th:value=1>ADMINISTRADOR </option>
-                <option th:value=2>OPERATIVO </option>
+                <option th:value=1>Administrador </option>
+                <option th:value=2>Operativo </option>
             </select>
         </fieldset>
 
         <fieldset>
 
-            <select  th:field="*{empresa}" class="form-control" id="empresa" required="required">
+            <select  th:field="*{empresa}" class="form-control" id="empresa" required="required" style="font: 400 12px/16px sans-serif, Helvetica, Arial, sans-serif;">
                 <option value="">Empresa a la que pertenece</option>
                 <option th:each="empresa: ${emprelist}" th:text="${empresa.nombre}" th:value="${empresa.idEmpresa}"></option>
             </select>

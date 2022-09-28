@@ -206,3 +206,8 @@ fieldset {
 :-ms-input-placeholder {
  color:#888;
 }
+
+p.a {
+  font:345 12px/16px;
+  font-family: "Times New Roman", Times, serif;
+}
